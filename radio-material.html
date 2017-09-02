@@ -1,0 +1,80 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		@keyframes ripple {
+  0% {
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.0);
+  }
+  50% { 
+    box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0);
+  }
+}
+
+
+
+input[type="radio"] {display: none;}
+     
+input[type="radio"]:checked + .radio-label:after { transform: scale(1);}
+
+input[type="radio"]:checked + .radio-label:before {
+  border-color: 10px;
+  animation: ripple 0.2s linear forwards;}    
+
+.radio-label {
+  display: inline-block;
+  height:20px;
+  position: relative;
+  padding: 0 30px;
+  margin-bottom: 0;
+  cursor: pointer;
+  vertical-align: bottom;
+  }
+       
+ .radio-label:before {
+   left: 0;
+   top: 0;
+   width: 20px;
+   height: 20px;
+   border: 2px solid rgba(0, 0, 0, 0.54);
+  }
+ .radio-label:after {
+    top: 5px;
+    left: 5px;
+    width:10px;
+    height:10px;
+    transform: scale(0);
+    background:rgb(51, 122, 183);
+  }
+    
+
+.radio-label:before, .radio-label:after {
+  position: absolute;            
+  content: '';  
+  border-radius: 60%;
+  transition: all .3s ease;
+  transition-property: transform, border-color;
+  }
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+	</style>
+</head>
+<body>
+
+<input id="1" type="radio" name="g" checked>
+<label class="radio-label" for="1">Option 1</label>
+  
+<input id="2" type="radio" name="g">
+<label class="radio-label" for="2">Option 2</label>  
+
+	
+</body>
+</html>
